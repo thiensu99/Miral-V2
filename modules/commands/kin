@@ -1,0 +1,25 @@
+const fs = require("fs");
+module.exports.config = {
+	name: "kin",
+    version: "1.0.1",
+	hasPermssion: 0,
+	credits: "ĐTS", 
+	description: "no prefix",
+	commandCategory: "không cần dấu lệnh",
+	usages: "Người yêu của Kin nek...",
+    cooldowns: 5, 
+};
+
+module.exports.handleEvent = function({ api, event, client, __GLOBAL }) {
+	var { threadID, messageID } = event;
+	if (event.body.indexOf("Kin")==0 || (event.body.indexOf("kin")==0)) {
+		var msg = {
+				body: "𝐵𝑜 𝑡𝑖̀𝑚 𝐾𝑖𝑛 𝑛𝑎̃𝑦 𝑔𝑖𝑜̛̀ ^^",
+				attachment: fs.createReadStream(__dirname + `/noprefix/ducbo.mp4`)
+			}
+			api.sendMessage(msg, threadID, messageID);
+		}
+	}
+	module.exports.run = function({ api, event, client, __GLOBAL }) {
+
+}
